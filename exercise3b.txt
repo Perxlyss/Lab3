@@ -1,0 +1,2 @@
+check_ip() cat randomIP.txt | grep -Eo '\b([0-9]{1,3}\.){3}[0-9]{1,3}\b' | while read ip;
+do sudo ping -c1 -W1 "$ip" &>/dev/null && echo "$ip" > /workspaces/Lab3/alive_hosts.txt; done 
